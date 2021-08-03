@@ -1,0 +1,97 @@
+1.
+'This code will unhide all sheets in the workbook
+  Sub UnhideAllWoksheets()
+  Dim ws As Worksheet
+  For Each ws In ActiveWorkbook.Worksheets
+  ws.Visible = xlSheetVisible
+  Next ws
+  End Sub
+2.
+'This macro will hide all the worksheet except the active sheet
+ Sub HideAllExceptActiveSheet()
+ Dim ws As Worksheet
+ For Each ws In ThisWorkbook.Worksheets
+ If ws.Name (greater than sign - less than sign) ActiveSheet.Name Then ws.Visible = xlSheetHidden
+ Next ws
+ End Sub
+
+3.
+'This code will sort the worksheets alphabetically
+Sub ArrangeSheetsAsc()
+    Application.ScreenUpdating = False
+    Dim ShCount As Integer, i As Integer, j As Integer
+    ShCount = Sheets.Count
+    For i = 1 To ShCount - 1
+        For j = i + 1 To ShCount
+            If Sheets(j).Name (less than sign) Sheets(i).Name Then
+                Sheets(j).Move before:=Sheets(i)
+            End If
+        Next j
+    Next i
+    Application.ScreenUpdating = True
+End Sub
+
+4.
+'This code will protect all the sheets at one go
+Sub ProtectAllSheets()
+    Dim ws As Worksheet
+    Dim password As String
+    password = "Test123"
+    For Each ws In Worksheets
+        ws.Protect password:=password
+    Next ws
+End Sub
+5.
+'This code will unprotect all the sheets at one go
+Sub UnprotectAllSheets()
+    Dim ws As Worksheet
+    Dim password As String
+    password = "Test123"
+        ws.Unprotect password:=password
+    Next ws
+End Sub
+ 6.
+'This code will unhide all the rows and columns in the Worksheet
+Sub UnhideRowsColumns()
+    Columns.EntireColumn.Hidden = False
+    Rows.EntireRow.Hidden = False
+End Sub
+
+7.
+'This code will unmerge all the merged cells
+Sub UnmergeAllCells()
+    ActiveSheet.Cells.UnMerge
+End Sub
+
+8
+'This code will Save the File With a Timestamp in its name
+Sub SaveIt()
+    Dim DateTimeSuffix As String, WorkBookName As String
+    WorkBookName = "d:\Data_"
+    DateTimeSuffix = Format(CStr(Now), "yyyy-mm-dd-hh-mm-ss")
+    ActiveWorkbook.SaveAs Filename:=WorkBookName & DateTimeSuffix
+End Sub
+
+9 .
+'This code will save each worsheet as a separate PDF
+Sub SaveEachAsPDF()
+    Dim ws As Worksheet
+    For Each ws In Worksheets
+        ws.ExportAsFixedFormat xlTypePDF, "D:\demo\" & ws.Name & ".pdf"
+    Next ws
+    MsgBox ("Worksheets are successfully saved")
+End Sub
+
+10.
+
+'This code will convert all formulas into values
+Sub ConvertToValues()
+    With ActiveSheet.UsedRange
+        .Value = .Value
+    End With
+    MsgBox ("All Formulas are converted to values")
+End Sub
+
+
+
+
