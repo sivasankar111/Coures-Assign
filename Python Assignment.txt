@@ -1,0 +1,429 @@
+Assignment Question List
+
+
+1. Write a Python program which accepts a sequence of comma-separated numbers from user and generate a list and a tuple with those numbers.
+values = input("Input some comma seprated numbers : ")
+list = values.split(",")
+tuple = tuple(list)
+print('List : ',list)
+print('Tuple : ',tuple)
+
+
+2.Write a Python program to display the first and last colors from the following list.
+color_list = ["Red","Green","White" ,"Black"]
+print( "%s %s"%(color_list[0],color_list[-1]))
+
+
+3. Write a Python program to print the even numbers from a given list.
+def is_even_num(l):
+    enum = []
+    for n in l:
+        if n % 2 == 0:
+            enum.append(n)
+    return enum
+print(is_even_num([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+Module
+
+1. Write a Python program to calculate number of days between two dates. Hint: use Datetime package/module
+
+from datetime import date
+f_date = date(2014, 7, 2)
+l_date = date(2014, 7, 11)
+delta = l_date - f_date
+print(delta.days)
+
+Funtions
+
+1.Write a Python program to get the volume of a sphere with radius 6
+
+pi = 3.1415926535897931
+r= 6.0
+V= 4.0/3.0*pi* r**3
+print('The volume of the sphere is: ',V)
+
+2.Write a Python program to calculate the sum of three given numbers, if the values are equal then return three times of their sum hit
+
+def sum_thrice(x, y, z):
+
+     sum = x + y + z
+  
+     if x == y == z:
+      sum = sum * 3
+     return sum
+
+print(sum_thrice(1, 2, 3))
+print(sum_thrice(3, 3, 3))
+
+3.Write a Python program to count the number 4 in a given list.
+
+List=[1,4,6,8,4,9,4]
+print (List.count(4))
+
+4. Write a Python program to print all even numbers from a given numbers list in the same order and stop the printing if any numbers that come after 237 in the sequence.
+
+numbers = [399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217,
+
+815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717,
+
+958,743, 527] 
+
+for x in numbers:
+    if x == 237:
+        print(x)
+        break;
+    elif x % 2 == 0:
+        print(x)
+
+5.Write a Python program to find those numbers which are divisible by 7 and multiple of 5, between 1500 and 2700
+
+nl=[]
+for x in range(1500, 2701):
+    if (x%7==0) and (x%5==0):
+        nl.append(str(x))
+print (','.join(nl))
+
+6 .Write a Python program that prints all the numbers from 0 to 6 except 3 and 6.
+
+for x in range(6):
+    if (x == 3 or x==6):
+        continue
+    print(x,end=' ')
+print("\n")
+	
+7. Write a Python program to get the Fibonacci series between 0 to 50.
+
+x,y=0,1
+
+while y<50:
+    print(y)
+    x,y = y,x+y
+
+8.Write a Python program to get the Fibonacci series between 0 to 50.
+
+Same Question Repeat
+
+9. Write a Python function that takes a list and returns a new list with unique elements of the first list.
+
+def unique_list(l):
+  x = []
+  for a in l:
+    if a not in x:
+      x.append(a)
+  return x
+
+print(unique_list([1,2,3,3,3,3,4,5])) 
+
+Strings
+
+1.Write a Python program to concatenate all elements in a list into a string and return it.
+
+def concatenate_list_data(list):
+    result= ''
+    for element in list:
+        result += str(element)
+    return result
+
+print(concatenate_list_data([2, 7, 13, 6]))
+
+Dictionary
+
+1.Write a Python script to concatenate following dictionaries to create a new one.
+
+dic1={1:10, 2:20}
+dic2={3:30, 4:40}
+dic3={5:50,6:60}
+dic4 = {}
+for d in (dic1, dic2, dic3): dic4.update(d)
+print(dic4)
+
+Series 
+
+Write a Python program to add, subtract, multiple and divide two Pandas Series.
+
+import pandas as pd
+sk22 = pd.Series([2, 4, 6, 8, 10])
+sk23 = pd.Series([1, 3, 5, 7, 9])
+sk = sk22 + sk23
+print("Add two Series:")
+print(sk)
+print("Subtract two Series:")
+sk = sk22 - sk23
+print(ds)
+print("Multiply two Series:")
+sk = sk22 * sk23
+print(ds)
+print("Divide Series1 by Series2:")
+sk = sk22/ sk23
+print(sk)
+
+Basic Programm
+
+1. Write Python Programs to use various operators in Python
+
+a=9
+b=4
+add=a+b
+add
+
+a=9
+b=4
+sub=a-b
+sub
+
+a=9
+b=4
+mul=a*b
+mul
+
+a=9
+b=4
+div1=a/b
+div1
+
+a=9
+b=4
+div2=a//b
+div2
+
+
+a=9
+b=4
+power=a**b
+power
+
+2. Create list of elements and slice and dice it
+
+Name="Johnny"
+print(Name[0])
+print(Name[3:])
+print(Name[-1])
+print(Name[-3:-1])
+
+3. Using while loop accept numbers until sum of numbers is less than 100
+
+i=1    
+while(i<=100):    
+    print(i)    
+    i=i+1    
+    if(i==100):    
+        break   
+else:  
+    print("The while loop exhausted")  
+
+4. Write a python program Read & write Excel files 
+
+import pandas as pd
+df=pd.read_csv("E:\\Python\\New folder (3)\\crime_data.csv")
+df
+
+5.Write a python program to scrape reviews from a commercial web site
+
+# -*- coding: utf-8-*-
+"""
+Created on Wed may 12 12:43:18 2021
+@author: ASUS
+
+import requests
+from bs4 import BeautifulSoup
+import csv
+
+URL="http://www.values.com/inspirational-quotes"
+r = requests.get(URL)
+
+soup = BeautifulSoup(r.content, 'html5lib')
+
+quotes=[] # a list to Store quotes
+
+table = soup.find('div', attrs ={'id':'all_quotes'})
+
+for row in table.findall('div',attrs=
+                              
+                                 {'class':'col-6 col-lg -3 text center- margin-30px- bottom sm- Margin-30px-top'}):
+
+quote = {}
+quote['theme']= row.h5.text
+quote['url']=row.a['href']
+quote['img']=row.img['src']
+quote['lines'] = row.img['alt'].split(" # ")[0]
+quote['author'] =row.img ['alt'].split(" #")[1]
+
+filename = 'inspirational_quotes.csv'
+with open(filename,'w',newline=' ') as f:
+ w = csv.Dictwriter(f,['theme','url','img','lines','author']) 
+w.writerheader()
+for quote in quotes:
+w.writerow(quote)
+
+6. Create a 3x3 matrix with values ranging from 2 to 10 using numpy
+
+import numpy as np
+x =  np.arange(2, 11).reshape(3,3)
+print(x)
+
+7. Write a Python program to convert a list of numeric value into a one-dimensional NumPy array
+
+import numpy as np
+l = [12.23, 13.32, 100, 36.32]
+print("Original List:",l)
+a = np.array(l)
+print("One-dimensional NumPy array: ",a)
+
+8. "Write a Python program to create a null vector of size 10 and update sixth value to 11.
+
+import numpy as np
+x = np.zeros(10)
+print(x)
+print("Update sixth value to 11")
+x[6] = 11
+print(x)
+
+
+Data Frame
+
+1.  Write a Pandas program to select the specified columns and rows from a given data frame. Go to the editorSample Python dictionary data and list labels:
+
+import pandas as pd
+import numpy as nd
+exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}
+labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+df=pd.DataFrame(exam_data, index=labels)
+print("Select specific columns and rows:")
+print(df.iloc[[1,3,5,6], [0, 1]])
+
+2. Use Crime dataset from LMS
+i)
+import pandas as pd
+df=pd.read_csv("E:\\Python\\New folder (3)\\crime_data.csv")
+df
+
+df.count()
+ii)
+# Barchart
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('E:\\Python\\New folder (3)\\crime_data.csv',nrows=6)
+plt.bar(df['City'],df['Rape'],color="g",label="Rape")
+plt.bar(df['City'],df['Murder'],color="r",label="Murder")
+plt.xlabel("cities")
+plt.ylabel('Rape Number')
+plt.title('Crimedata')
+plt.legend()
+plt.show
+
+#pie chart
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('E:\\Python\\New folder (3)\\crime_data.csv',nrows=20)
+plt.pie(df['Rape'],labels=df['City'],autopct="%.2f%%")
+plt.figure(figsize=(50,0))  
+plt.show()
+
+#Scatter Chart
+
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('E:\\Python\\New folder (3)\\crime_data.csv',nrows=20)
+plt.scatter(df['UrbanPop'],df["Assault"],label='UrbanPop and Assault',color="g" )
+plt.title("scatter plot")
+plt.xlabel("Assault")
+plt.ylabel("UrbanPop")
+plt.legend
+plt.show()
+
+# Histogram
+
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('E:\\Python\\New folder (3)\\crime_data.csv')
+plt.hist(df['UrbanPop'],bins=10 )
+plt.title('Histogram')
+plt.xlabel("No of UrbanPop")
+plt.ylabel("Bin size")
+plt.show()
+
+# boxplot
+
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('E:\\Python\\New folder (3)\\crime_data.csv',nrows=3)
+plt.boxplot(df['UrbanPop'])
+plt.title('boxplot')
+plt.show()
+
+# Dot Chart
+
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('E:\\Python\\New folder (3)\\crime_data.csv')
+plt.plot(df['UrbanPop'],'ro')
+plt.title('Dot Plot')
+plt.show()
+
+3. use mtcars dataset from LMS
+
+A) # delete/ drop rows-10 to 15 of all columns
+import pandas as pd
+df=pd.read_csv("E:\\Python\\New folder (3)\\mtcars.csv")
+df.drop([10,11,12,13,14,15],axis=0)
+
+
+B)drop the VOL column
+
+import pandas as pd
+data=pd.read_csv("E:\\Python\\New folder (3)\\mtcars.csv")
+data.drop("vs", axis=1, inplace=True) 
+data
+
+
+C)write the forloop to get value_counts of all cloumns
+
+import pandas as pd
+df=pd.read_csv("E:\\Python\\New folder (3)\\mtcars.csv")
+for columns in df.columns:
+    print
+    display(df[columns].value_counts())
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
