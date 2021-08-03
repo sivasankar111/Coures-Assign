@@ -1,0 +1,76 @@
+1.create database assignment;
+2.create table assignment_authors(authorid int,name varchar(233));
+3.Alter table assignment_authors rename to authors;
+  a) insert into assignment_authors values
+     (1,"J K Rowling"),
+     (2,"Thomas Hardy"),
+     (3,"Oscar Wilde"),
+     (4,"Sidney Sheldon"),
+     (5,"Alistair Maclean"),
+     (6,"Jane Autsen");
+   b)insert into authors values
+     (7,"Kraig Muller"),
+     (8,"Karrie Nicolette"),
+     (9,"Glimpses");
+   c)update authors set  name="Alastair McNeal" where authorid=5;
+4.Create table Books(bookid int,title varchar(233),authorid int);
+   a)insert into books values
+     (1,"Harry Potter and the Philosopher's Stone",1),
+     (2,"Harry Potter and the Chamber of Secrets",1),
+     (3,"Harry Potter and the Half-Blood Prince",1),
+     (4,"Harry Potter and the Goblet of Fire",1),
+     (5,"Night Without End",5)",
+     (6,"Fear is the Key",5"),
+     (7,"Where Eagles Dare",5),
+     (8,"Sense and Sensibility",6),
+     (9,"Pride and Prejudice",6)
+     (10,"Emma",6)
+     (11,"Random Book",22);
+    b)Delete from books where title="Random Book";
+5.alter table books rename to Favbooks;
+  Alter table Favbooks change authorid Favauthors int;
+6)
+  b)Create table Suppliers(supplier_id int auto_increment,supplier_name varchar(233),location varchar(60),Primary Key(supplier_id));
+  a)Create table Products(product_id int Auto_increment,product_name varchar(233)unique,supplier_id int,primary Key(product_id),Foreign Key(supplier_id) References Suppliers(supplier_id));
+  c)Create table Stock(ID int Auto_increment,product_id int,balance_stock varchar(233),Primary Key(ID),Foreign Key(product_id) References Products(product_id));
+7)insert into suppliers Values
+   (2532,"order pros","Bangalore"),
+   (2532,"order pros","Bangalore"),
+   (2533,"Strict supply","Mumabai"),
+   (2534,"Happy Distributers","Chennai"),
+   (2535,"Invertory wholesales","Delhi"),
+   (2536,"Bulk demand","Chennai"),
+   (2537,"you to Retail","Chennai");
+insert into Products values
+    (001,"Blankets",2531),
+    (002,"Bed Spreads",2532),
+    (003,"Mattress Covers",2533),
+    (004,"Fabrics for wall",2534),
+    (005,"Covering",2535),
+    (006,"Bathroom",2536),
+    (007,"Shower Curtains",2537); 
+insert into Stock (product_id,balance_stock ) Values
+     (001,50),
+     (002,45),
+     (003,10),
+     (004,25),
+     (005,78),
+     (006,25),
+     (007,04);
+8) Alter table Suppliers modify supplier_name varchar(233) Not null unique;
+9) a)Alter table emp add deptno int;
+   b)update emp set deptno = 10 ;
+     update emp set deptno = 20 where emp_no % 2 =0;
+     update emp set deptno = 30 where emp_no % 3 =0;
+     update emp set deptno = 40 where emp_no % 4 =0;
+     update emp set deptno = 50 where emp_no % 5 =0;
+
+10)Alter table emp add constraint unique_emp_id UNIQUE KEY (emp_no);
+
+CREATE UNIQUE INDEX  unique_emp_id on emp (emp_no);
+
+Show indexes from emp;
+
+
+
+

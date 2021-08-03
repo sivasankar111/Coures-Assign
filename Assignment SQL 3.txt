@@ -1,0 +1,91 @@
+1.
+Delimiter //
+Create Procedure accepts_the_month_and_year(IN Month Varchar(50),Year int)
+Begin
+Select orderDate,status from Orders where Month(orderDate)='02' Group By orderDate;
+End;//
+Call accepts_the_month_and_year('Feb',2003);
+
+3(i) Delimiter //
+     Create Procedure CustomerAmount_Details1(IN c_customernumber INT,OUT purchase_status Varchar(233))
+     Begin
+     DECLARE Amt int;
+     DECLARE CustomerNumber Int;
+     Select Amount Into Amt
+     From Payments where customernumber=c_customernumber; 
+     IF Amt > 50000 THEN
+     SET purchase_status = 'PLATINUM';
+     ELSEIF Amt <= 50000 AND Amt > 25000 THEN
+     SET purchase_status = 'GOLD';
+     ELSE
+     SET purchase_status='Silver';
+     END IF;
+     End;//
+
+ii) Call CustomerAmount_Details1(496,@purchase_status);
+    Select@purchase_status;
+    Create Procedure CustomerAmount_Details3(IN c_customernumber INT,OUT checkNumber Varchar(233),OUT purchase_status  Varchar(233))
+    Begin
+    DECLARE Amt int;
+    DECLARE CustomerNumber Int;
+    Select Amount Into Amt
+    From Payments where customernumber=c_customernumber ='checkNumber';
+    Select Amount Into Amt
+    From Payments where customernumber=c_customernumber ='purchase_status';
+    IF Amt > 50000 THEN
+    SET purchase_status = 'PLATINUM';
+    ELSEIF Amt <= 50000 AND Amt > 25000 THEN
+    SET purchase_status = 'GOLD';
+    ELSE
+    SET purchase_status='Silver';
+    END IF;
+    End;//
+
+
+
+ 4)  Delimiter //
+     Create Procedure CustomerAmount_Details1(IN c_customernumber INT,OUT purchase_status Varchar(233))
+     BEGIN 
+     DECLARE specialty CONDITION FOR SQLSTATE '45000';
+     DECLARE Amt int;
+     Select Amount Into Amt
+     From Payments where customernumber=c_customernumber; 
+     IF Amt > 50000 THEN
+     SET purchase_status = 'PLATINUM';
+     SIGNAL SQLSTATE '45000'
+     SET MESSAGE_TEXT = 'raise an exception update the crediltlimit to 100000';
+     ELSEIF Amt <= 50000 AND Amt > 25000 THEN
+     SET purchase_status = 'GOLD';
+     ELSE
+     SET purchase_status='Silver';
+     SIGNAL SQLSTATE '45000'
+     SET MESSAGE_TEXT = 'raise an exception update the crediltlimit to 60000';
+     END IF;
+     End;//
+
+
+  5) ALTER TABLE movies ADD CONSTRAINT `bfk_1`
+     FOREIGN KEY(id) REFERENCES rentals (memid) ON update CASCADE;
+
+     delimiter //
+     Create Trigger before_ren_update  Before update
+     on movies
+     for each row
+     begin
+     insert into rentals set
+     memid =old.id,
+     first_name=old.Title,
+     end; //
+     update movies set title="Robo" where id =5;
+  
+
+	
+
+
+
+
+
+
+
+
+

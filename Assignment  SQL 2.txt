@@ -1,0 +1,27 @@
+1)Select * from emp where deptno=10 and salary>3000;
+
+2)a.Select Count(*) From Students where marks between 50 and 80;  
+  
+  b.Select Count(*) From Students where marks between 80 and 100;
+   
+3).Select Distinct city,id from station WHERE MOD(Id,2)=0 ORDER BY City; 
+
+4).Select Count(city) from station;
+  Select Count(distinct city) from station;
+  Select Count(City)-Count(distinct city) from station;
+
+5)a.SELECT DISTINCT CITY FROM STATION WHERE CITY LIKE "a%" OR CITY LIKE "e%" OR CITY LIKE "i%" OR CITY LIKE "o%" OR CITY LIKE "u%";
+  b.SELECT DISTINCT city FROM station WHERE city REGEXP "^[aeiou].*[aeiou]$";
+  c.SELECT DISTINCT CITY FROM STATION WHERE CITY NOT RLIKE '^[aeiouAEIOU].*$';
+  d.SELECT DISTINCT city FROM station WHERE city RLIKE '^[^aeiouAEIOU].*|.*[^AEIOUaeiou]$';
+
+7)Select first_name,last_name,deptno From emp where deptno=10 and salary>2000;
+
+8)Select sum(salary),Deptno from emp Group by deptno;
+ 
+9)Select Count(*) from city where  population >100000;
+
+10) Select sum(population) from city where district="California";
+
+11) Select avg(population),Countrycode from city group by countrycode;
+
